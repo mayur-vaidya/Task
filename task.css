@@ -22,6 +22,9 @@
   height: 40px;
   padding: 10px;
   width: 200px; }
+  @media only screen and (max-width: 480px) {
+    .search-box {
+      display: none; } }
 
 .search-area {
   padding: 5px; }
@@ -42,12 +45,18 @@
   color: #D1E8EF;
   font-size: 25px;
   margin: 10px 20px; }
+  @media only screen and (max-width: 480px) {
+    .notification-icon {
+      display: none; } }
 
 .user-image {
   border-radius: 50%;
   height: 45px;
   margin: 5px 20px;
   width: 45px; }
+  @media only screen and (max-width: 480px) {
+    .user-image {
+      display: none; } }
 
 .cover-pic {
   border-top-right-radius: 5px;
