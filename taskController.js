@@ -23,22 +23,20 @@ function eventHandlers() {
 
   $('#share-more-stories').on('click', '.post-now', function(){
     var d = new Date();
-    var seconds = d.getTime();
-    var htmlText = $('#recently-added-story').html();
+    var currentTime = d.getTime();
     var pic = $('.insert-image-to-post').val();
     var post = $('.write-story').val();
-    var mins = minCounter(seconds);
-    console.log(mins);
     if(post.length > 0 && pic.length == 0) {
       var view = {
         heading : "Dave Gamache",
         userImage : "https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png",
         story : post,
-        time: mins
+        millisecond : currentTime
       };
       views.push(view);
       $('#complete-modal').modal('hide');
-      newStories(htmlText, view);
+      //newStories(htmlText, view);
+      storyMaker();
     }
 
     if ((pic.length > 0) && (pic.match(/\.(jpeg|jpg|gif|png)$/) != null)) {
@@ -47,11 +45,11 @@ function eventHandlers() {
         userImage : "https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png",
         story : post,
         image : pic,
-        time: mins
+        millisecond : currentTime
       };
       views.push(view);
       $('#complete-modal').modal('hide');
-      newStories(htmlText, view);
+      storyMaker();
     }
     else {
       $('.insert-image-to-post').css("borderColor", "red");
@@ -65,7 +63,6 @@ function eventHandlers() {
 };
 
 function staticStories() {
-  var htmlText = $('#recently-added-story').html();
   var storyDetails =
     [
       {
@@ -82,47 +79,29 @@ function staticStories() {
         story : "Having a template for a user story, provides a good guideline."
       },
     ];
-    var view = [];
     for(var i = 0; i < storyDetails.length ; i++) {
-      var minutes = minCounter(storyDetails[i].millisecond);
-      data = {
+      var data = {
         heading : storyDetails[i].heading,
-        time : minutes,
+        millisecond : storyDetails[i].millisecond,
         userImage : storyDetails[i].userImage,
         image : storyDetails[i].image,
         story : storyDetails[i].story
       }
-      view.push(data);
       views.push(data);
     }
-    $('#complete-modal').hide();
-    newStories(htmlText, view);
-};
-
-function newStories(htmlInput, view) {
-  var output = Mustache.render(htmlInput, view);
-  $('#all-new-stories').prepend(output);
-  console.log(views);
+    storyMaker();
 };
 
 function currentUser() {
-  var userDetails = {
+  var view = {
     userName : "Dave Gamache",
     userStatus : "I wish i was a little bit taller, i wish i was a baller, wish i had a girl... also.",
-    profilePic: "https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png",
-    coverPic: "https://bootstrap-themes.github.io/application/assets/img/iceland.jpg",
-    friends: "12M",
-    enemy: "10"
-  }
-  var htmlText = $('#logged-in-user').html();
-  var view = {
-    coverImage : userDetails.coverPic,
-    profilePicture : userDetails.profilePic,
-    userName : userDetails.userName,
-    userStatus : userDetails.userStatus,
-    totalFriends : userDetails.friends,
-    totalEnemy : userDetails.enemy
+    profilePicture: "https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png",
+    coverImage: "https://bootstrap-themes.github.io/application/assets/img/iceland.jpg",
+    totalFriends: "12M",
+    totalEnemy: "10"
   };
+  var htmlText = $('#logged-in-user').html();
   var output = Mustache.render(htmlText, view);
   $('#current-profile-tile').html(output);
 };
@@ -145,16 +124,18 @@ function allImagesFinder() {
 function minCounter(millisecond) {
   var d = new Date();
   var time = Math.floor((d.getTime() - millisecond)/60000);
+  var seconds = Math.floor((d.getTime() - millisecond)/1000);
+  if(seconds < 60) {return "a moment ago"};
   if(time < 60) { return time + "m"};
   if(time > 60) { return Math.floor(time/60) + "h"};
   if(time/60 > 24) {return Math.floor(time/(60*24)) + "d"};
-  if((time/(60*24)) > 30) { return Math.floor((time/(60*24*30)))};
+  if((time/(60*24)) > 30) { return Math.floor((time/(60*24*30)))+ "month"};
 }
 
 function sponsors() {
   var htmlText = $('#sponsor-details').html();
   var view = {
-    userHeading : "Sponsors",
+    userHeading : "Sponsored",
     image : "https://bootstrap-themes.github.io/application/assets/img/instagram_2.jpg",
     heading : "It might be time to visit Iceland.",
     content : "Iceland is so chill, and everything looks cool here.Also, we heard the people are pretty nice.What are you waiting for?",
@@ -183,4 +164,25 @@ function followers() {
   ];
   var output = Mustache.render(htmlText, view);
   $('#follower-profile-tile').html(output);
+};
+
+function storyMaker() {
+  var htmlInput = $('#recently-added-story').html();
+  var arrayLength = views.length - 1;
+  var newArray = [];
+  for(var i = arrayLength; i >= 0 ; i--) {
+    var minutes = minCounter(views[i].millisecond);
+    var data = {
+      heading : views[i].heading,
+      time : minutes,
+      userImage : views[i].userImage,
+      image : views[i].image,
+      story : views[i].story
+    }
+    newArray.push(data);
+  }
+  var output = Mustache.render(htmlInput, newArray);
+  $('#all-new-stories').empty();
+  $('#all-new-stories').html(output);
+  setInterval(storyMaker, 60000);
 };
