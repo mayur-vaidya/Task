@@ -4,6 +4,7 @@
   <title>Task</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="https://lh5.ggpht.com/TrxZyprX1qaTRdp8OGpz0FU8MZaGiq__uYKEzOtcdVnsFWmVcTxosIUqS6emE5rpRv8=w300">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="task.css">
 </head>
@@ -18,7 +19,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><img class="navigation-icon" src="https://bootstrap-themes.github.io/application/assets/img/brand-white.png"></a>
+          <a class="navbar-brand" href="#"><img class="navigation-icon" src="https://bootstrap-themes.github.io/application/assets/img/brand-white.png"></img></a>
         </div>
         <div class="collapse navbar-collapse navigation-background" id="navbar-hamburger"> <!-- Navbaar Collapse for mobile view -->
           <ul class="nav navbar-nav">
@@ -32,9 +33,9 @@
               <input type="text" class="search-box" placeholder="Search">
             </div>
             <span class="glyphicon glyphicon-bullhorn notification-icon">
-              <img class="user-image"  src="https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png">
+              <img class="user-image"  src="https://bootstrap-themes.github.io/application/assets/img/avatar-dhg.png"></img>
             </span>
-          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -97,40 +98,38 @@
     {{#.}}
     <div class="new-stories">
       <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object story-user-image" src="{{userImage}}">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading story-content">{{heading}} <span class="time"> {{time}} </span></h4>
-        <p class="story-content">
-          {{story}}
-        </p>
-        {{#image}}<img class="story-image" src="{{image}}">{{/image}}
-      </div>
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object story-user-image" src="{{userImage}}"></img>
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading story-content">{{heading}}<span class="time">{{time}}</span></h4>
+          <p class="story-content">{{story}}</p>
+          {{#image}}<img class="story-image" src="{{image}}">{{/image}}</img>
+        </div>
       </div>
     </div>
     {{/.}}
   </script>
   <script id="logged-in-user" type="text/template">
-    <div class="user-profile-tile">  <!-- User Profile tile. -->
+    <div class="tile">  <!-- User Profile tile. -->
       <div class="cover-pic">
-        <img src="{{coverImage}}">
+        <img src="{{coverImage}}"></img>
       </div>
       <div class="profile-img">
-        <img class="profile-picture" src="{{profilePicture}}">
+        <img class="profile-picture" src="{{profilePicture}}"></img>
       </div>
       <div class="user-details">
-        <p class="user-name"> {{userName}} </p>
-        <p class="user-content"> {{userStatus}} </p>
+        <p class="user-name">{{userName}}</p>
+        <p class="user-content">{{userStatus}}</p>
         <div class="friends">
           <p class="user-sub-details-one"> Friends </p>
-          <p class="user-sub-details-two"> {{totalFriends}} </p>
+          <p class="user-sub-details-two">{{totalFriends}}</p>
         </div>
         <div class="enemy">
           <p class="user-sub-details-one"> Enemy </p>
-          <p class="user-sub-details-two"> {{totalEnemy}} </p>
+          <p class="user-sub-details-two">{{totalEnemy}}</p>
         </div>
       </div>
     </div>
@@ -139,21 +138,21 @@
     <div class="sponsor-tile"> <!-- Tile for sponsor's details. -->
       <p class="sponsor-tile-text">{{userHeading}}</p>
       <div>
-        <img class="sponsored-image" src="{{image}}">
+        <img class="sponsored-image" src="{{image}}"></img>
       </div>
-      <p class="sponsor-tile-text"> {{heading}} </p>
-      <p class="sponsor-tile-content"> {{content}} </p>
-      <button> {{buttonText}} </button>
+      <p class="sponsor-tile-text">{{heading}}</p>
+      <p class="sponsor-tile-content">{{content}}</p>
+      <button>{{buttonText}}</button>
     </div>
   </script>
   <script id="follower-details" type="text/template">
-    <div class="likes-views-tile"> <!-- Tile for likes and view with follow button. -->
+    <div class="tile"> <!-- Tile for likes and view with follow button. -->
       <p class="likes-text"> Likes <sub><a href="#"> View All </a> </sub> </p>
       {{#.}}
         <div class="testinomials">
-          <img src="{{image}}">
-          {{followerName}} <p> {{twitterHandle}} </p>
-          <button> {{buttonText}} </button>
+          <img src="{{image}}"></img>
+          {{followerName}}<p>{{twitterHandle}}</p>
+          <button>{{buttonText}}</button>
         </div>
       {{/.}}
     </div>
@@ -163,7 +162,7 @@
       <p class="image-tile-text"> Photos <sub><a href="#"> Edit </a> </sub> </p>
       {{#.}}
       <div class="fetched-images">
-        <img src="{{image}}">
+        <img src="{{image}}"></img>
       </div>
       {{/.}}
     </div>
