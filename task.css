@@ -3,9 +3,7 @@
   border: 1px solid #D5E1EA;
   border-radius: 5px;
   margin-top: 25px;
-  min-height: 100px;
-  position: relative;
-  width: 100%; }
+  min-height: 100px; }
 
 .navigation-icon {
   height: 25px;
@@ -18,19 +16,23 @@
   margin-bottom: 0px; }
 
 .search-box {
+  border: 1px solid #D3D3D3;
   border-radius: 5px;
-  height: 40px;
-  padding: 10px;
+  padding: 5px;
   width: 200px; }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
     .search-box {
       display: none; } }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .search-box {
+      margin: 9px; } }
 
 .search-area {
-  padding: 5px; }
+  display: inline-block; }
 
 .navbar-default .navbar-nav li > a {
-  color: #D1E8EF; }
+  color: #D1E8EF;
+  font-size: 15px; }
 .navbar-default .navbar-nav li > a:hover {
   color: #FFFFFF; }
 
@@ -40,60 +42,72 @@
 .story-board {
   background: #F5F8FA;
   min-height: 1000px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .story-board {
+      padding: 0px; } }
 
 .notification-icon {
   color: #D1E8EF;
-  font-size: 25px;
-  margin: 10px 20px; }
-  @media only screen and (max-width: 480px) {
+  font-size: 15px;
+  margin: 0px 20px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .notification-icon {
+      display: none; } }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .notification-icon {
       display: none; } }
 
 .user-image {
   border-radius: 50%;
-  height: 45px;
-  margin: 5px 20px;
-  width: 45px; }
-  @media only screen and (max-width: 480px) {
+  height: 40px;
+  margin: 5px 10px;
+  width: 40px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .user-image {
+      display: none; } }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .user-image {
       display: none; } }
 
-.cover-pic {
+.cover-pic img {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  height: 150px;
-  position: absolute;
+  min-height: 150px;
   width: 100%; }
 
 .story-board-spacing {
   margin: 50px 20px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .story-board-spacing {
+      margin: 40px 10px; } }
 
-.profile-picture {
-  border: 4px solid #FFFFFF;
-  border-radius: 50%;
-  height: 100px;
-  margin-top: 100px;
-  margin-left: 30%;
-  position: relative;
-  width: 40%; }
+.profile-img {
+  margin-top: -55px; }
+  .profile-img img {
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    width: 100px; }
 
 .user-details {
-  position: relative;
-  text-align: center; }
+  text-align: center;
+  padding: 10px; }
 
 .user-name {
   font-size: 20px;
-  font-style: italic;
   font-weight: bold; }
 
 .user-content {
-  font-size: 15px;
-  font-weight: lighter; }
+  font-size: 15px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .user-content {
+      font-size: 20px; } }
 
 .friends {
   border-right: 1px solid #D6DDE1;
   display: inline-block;
-  margin-bottom: 10px;
   padding: 5px; }
 
 .enemy {
@@ -102,7 +116,6 @@
 
 .user-sub-details-one {
   font-size: 15px;
-  font-weight: lighter;
   margin-bottom: 0px; }
 
 .user-sub-details-two {
@@ -111,24 +124,33 @@
 
 .all-images-tile {
   padding-bottom: 25px; }
-
-.all-images-tile div {
-  display: inline-block;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 44%; }
-  .all-images-tile div img {
-    width: 100%;
-    height: 100%; }
+  .all-images-tile sub {
+    padding-left: 15px; }
+  .all-images-tile .fetched-images {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 44%; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      .all-images-tile .fetched-images {
+        width: 31%; } }
+    .all-images-tile .fetched-images img {
+      width: 100%;
+      height: auto; }
 
 .image-tile-text, .sponsor-tile-text, .likes-text {
   font-size: 15px;
   margin: 10px; }
 
 .get-new-story {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   min-height: 50px; }
+  .get-new-story button {
+    margin: 10px;
+    padding: 0px 10px; }
 
-.click-to-get-new-stories, .sponsor-tile button, .testinomials button, .post-now {
+.click-to-get-new-stories, .sponsor-tile button, .testinomials button {
   background: transparent;
   border: 1px solid #79B4D5;
   border-radius: 5px;
@@ -138,8 +160,31 @@
   padding: 5px 10px;
   text-align: center; }
 
+.invalid-details {
+  display: none; }
+
+.invalid-msg {
+  color: #FF0000; }
+
+.invalid-url {
+  color: #FF0000; }
+
+textarea.form-control {
+  height: 150px; }
+
 .new-stories {
+  border-radius: 0px;
+  border-top: 0px;
   margin-top: 0px; }
+
+.time {
+  color: #D3D3D3;
+  float: right;
+  font-size: 12px;
+  padding-right: 10px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .time {
+      font-size: 8px; } }
 
 .sponsor-tile-text {
   font-weight: bold;
@@ -147,13 +192,20 @@
 
 .sponsored-image {
   height: 100%;
-  padding: 10px;
+  padding: 0px 10px;
   width: 100%; }
 
-.sponsor-tile p {
+.sponsor-tile .sponsor-tile-text {
   margin: 10px; }
+.sponsor-tile .sponsor-tile-content {
+  padding: 0px 10px 0px;
+  margin: 0; }
 .sponsor-tile button {
-  color: #79B4D5; }
+  color: #79B4D5;
+  margin: 10px; }
+
+.likes-text sub {
+  padding-left: 15px; }
 
 .testinomials img {
   border-radius: 50%;
@@ -169,32 +221,20 @@
 
 .story-user-image {
   border-radius: 50%;
-  height: 100px;
-  margin: 10px;
-  width: 100px; }
+  height: 60px;
+  margin: 10px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .story-user-image {
+      height: 50px; } }
 
 .story-content {
   padding: 10px; }
+  @media only screen and (min-device-width: 320px) and (max-width: 480px) {
+    .story-content {
+      font-size: 12px; } }
 
 .story-image {
   padding: 0px 20px 20px 10px;
   width: 100%; }
-
-.insert-post-heading, .insert-image-to-post, .write-story {
-  border-radius: 5px;
-  font-size: 15px;
-  padding: 5px 10px;
-  width: 100%; }
-
-.write-story {
-  height: 300px; }
-
-.post-now {
-  background: #79B4D5;
-  color: #FFFFFF;
-  font-size: 20px;
-  margin: 10px;
-  padding: 5px 20px;
-  text-align: center; }
 
 /*# sourceMappingURL=task.css.map */
