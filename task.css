@@ -1,4 +1,4 @@
-.tile, .user-profile-tile, .all-images-tile, .get-new-story, .new-stories, .sponsor-tile, .likes-views-tile {
+.tile, .all-images-tile, .get-new-story, .new-stories, .sponsor-tile {
   background: #FFFFFF;
   border: 1px solid #D5E1EA;
   border-radius: 5px;
@@ -147,7 +147,7 @@
   border-bottom-left-radius: 0;
   min-height: 50px; }
   .get-new-story button {
-    margin: 10px;
+    margin: 15px;
     padding: 0px 10px; }
 
 .click-to-get-new-stories, .sponsor-tile button, .testinomials button {
@@ -186,23 +186,21 @@ textarea.form-control {
     .time {
       font-size: 8px; } }
 
-.sponsor-tile-text {
-  font-weight: bold;
-  margin-bottom: 0px; }
-
-.sponsored-image {
-  height: 100%;
-  padding: 0px 10px;
-  width: 100%; }
-
-.sponsor-tile .sponsor-tile-text {
-  margin: 10px; }
 .sponsor-tile .sponsor-tile-content {
   padding: 0px 10px 0px;
   margin: 0; }
 .sponsor-tile button {
   color: #79B4D5;
   margin: 10px; }
+
+.sponsor-tile-text {
+  margin: 10px;
+  margin-bottom: 0px; }
+
+.sponsored-image {
+  height: 100%;
+  padding: 10px 10px 5px;
+  width: 100%; }
 
 .likes-text sub {
   padding-left: 15px; }
