@@ -38,6 +38,8 @@
 
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #D1E8EF; }
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: #3097D1; }
 
 .story-board {
   background: #F5F8FA;
